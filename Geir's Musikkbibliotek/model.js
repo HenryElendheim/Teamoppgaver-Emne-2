@@ -1,0 +1,104 @@
+const model = {
+    app: {
+        app: document.getElementById("app"),
+        allPages: [
+            'homePage',
+            'searchPage',
+            'wishList',
+            'viewDetails',
+            'editDetails',
+            'profile',
+            'login',
+        ],
+
+        currentPage: 'homePage',
+        mobileMenuToggle: false,
+        loggedInID: null,
+    },
+
+    viewState: {
+        editMusicInfo: {
+            genre: null,
+            location: null,
+        },
+
+        musicInfo: {
+            id: null,
+            title: '',
+            artist: '',
+            location: [],
+            releaseYear: null,
+            genre: [],
+            notes: '',
+            wishlist: false,
+            coverImg: null,
+        },
+
+        login: {
+            username: '',
+            password: '',
+        },
+
+        createProfile: {
+            username: '',
+            password: '',
+            repeatPassword: '',
+        },
+
+        searchBar: null,
+    },
+
+    data: {
+        genre: ['Rock', 'Jazz', 'Country', '90-talls pop'],
+        location: ['Stue', 'Loft'],
+
+        musicInfo: [
+            {
+                userID: 1,
+                list: [
+                    {
+                        id: 1,
+                        title: 'Sangtittel',
+                        artist: 'Artist',
+                        location: [0],
+                        releaseYear: 1996,
+                        genre: [1],
+                        notes: 'Notat her',
+                        wishlist: false,
+                        coverImg: null,
+                    },
+                ],
+            },
+            {
+                userID: 2,
+                list: [
+                    {
+                        id: 1,
+                        title: 'Sangen',
+                        artist: 'Artisten',
+                        location: [1],
+                        releaseYear: 1991,
+                        genre: [3],
+                        notes: 'Notaten',
+                        wishlist: false,
+                        coverImg: null,
+                    },
+                ],
+            },
+        ],
+
+        users: [
+            {
+                id: 1,
+                username: 'Geir',
+                password: 'geir',
+            },
+            {
+                id: 2,
+                username: 'Geir Andre',
+                password: 'geir2',
+            },
+        ]
+
+    },
+}
