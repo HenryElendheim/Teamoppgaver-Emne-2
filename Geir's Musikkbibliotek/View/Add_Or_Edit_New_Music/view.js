@@ -1,6 +1,12 @@
 function editDetailsPage() {
     return /*HTML*/ `
-    <p>${model.viewState.musicInfo.artist}</p>
+    <input onchange="setArtist(this.value)">
 
     `;
+}
+
+function setArtist(artistName) {
+    model.viewState.musicInfo.artist = artistName;
+    model.data.musicInfo.push(artistName);
+    updateView();
 }
