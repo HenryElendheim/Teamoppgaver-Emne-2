@@ -1,6 +1,6 @@
 function homeView() {
     return /*HTML*/ `
-    <p>Homepage</p>
+    <button onclick="changePage('editDetails')">Legg til musikk</button>
 
     `;
 }
