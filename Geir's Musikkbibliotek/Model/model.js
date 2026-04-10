@@ -6,6 +6,7 @@ const model = {
             'searchPage',
             'wishList',
             'viewDetails',
+            'addDetails',
             'editDetails',
             'profile',
             'login',
