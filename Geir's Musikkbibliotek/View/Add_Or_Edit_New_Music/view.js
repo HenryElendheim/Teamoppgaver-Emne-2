@@ -6,6 +6,7 @@ function editDetailsPage() {
     <input onchange="model.viewState.musicInfo.releaseYear=this.value" placeholder="Årstall">
     <input onchange="model.viewState.musicInfo.genre=this.value" placeholder="Sjanger">
     <input onchange="model.viewState.musicInfo.coverImg=this.value" type="file">
+    <br>
     <button onclick="submitChanges()">Lagre</button>
     `;
 }
@@ -18,6 +19,7 @@ function addDetailsPage() {
     ${displayLocation()}
     <input onchange="model.viewState.musicInfo.releaseYear=this.value" placeholder="Årstall">
     <input onchange="model.viewState.musicInfo.genre=this.value" placeholder="Sjanger">
+    <br>
     <button onclick="submitChanges()">Lagre</button>
     `;
 }
