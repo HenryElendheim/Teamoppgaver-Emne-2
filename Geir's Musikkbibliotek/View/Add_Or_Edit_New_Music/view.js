@@ -6,10 +6,6 @@ function editDetailsPage() {
 	return buildMusicForm(true);
 }
 
-// Felles skjema for legg til og rediger.
-// isEdit = true: henter data fra model.viewState.musicInfo
-// isEdit = false: tomt skjema
-
 function buildMusicForm(isEdit) {
 	const info = model.viewState.musicInfo;
 
@@ -116,7 +112,6 @@ function buildMusicForm(isEdit) {
     `;
 }
 
-// Hjelpefunksjon: håndterer lokasjon som indeks-array (i tråd med modellen)
 function toggleLocationCheckbox(checkbox, index) {
 	const locations = model.viewState.musicInfo.location;
 	if (checkbox.checked) {
@@ -127,7 +122,6 @@ function toggleLocationCheckbox(checkbox, index) {
 	}
 }
 
-// Genererer tilfeldig unik ID
 function rng() {
 	const number = Math.floor(Math.random() * 999999);
 	for (let i = 0; i < model.data.musicInfo.length; i++) {
@@ -136,24 +130,8 @@ function rng() {
 	return number;
 }
 
-// Nullstiller viewState etter lagring
-function emptyViewStateValues() {
-	model.viewState.musicInfo = {
-		id: null,
-		title: "",
-		artist: "",
-		location: [],
-		releaseYear: null,
-		genre: [],
-		notes: "",
-		wishlist: false,
-		coverImg: null,
-	};
-}
-
 function submitChanges() {
 	model.viewState.musicInfo.id = rng();
 	model.data.musicInfo.push({ ...model.viewState.musicInfo });
-	emptyViewStateValues();
 	changePage("homePage");
 }

@@ -1,7 +1,3 @@
-// Delt albumkort-komponent.
-// Brukes av: homeView(), searchPage(), wishListPage()
-// Argument: ett album-objekt fra model.data.musicInfo
-
 function createAlbumCard(album) {
 	const genre = album.genre.map((i) => model.data.genre[i]).join(", ") || "—";
 	const location =

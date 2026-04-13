@@ -24,14 +24,6 @@ function searchPage() {
 		: "";
 
 	return /*HTML*/ `
-    <div class="search-bar">
-        <input
-            type="text"
-            placeholder="Søk etter artist, album eller sjanger…"
-            value="${query}"
-            oninput="model.viewState.searchBar = this.value; updateView()">
-        <button class="btn btn-accent" onclick="updateView()">Søk</button>
-    </div>
     ${countHTML}
     ${resultHTML}
     `;
