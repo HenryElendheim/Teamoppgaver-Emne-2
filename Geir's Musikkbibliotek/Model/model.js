@@ -56,7 +56,7 @@ const model = {
         musicInfo: [
             {
                 id: 1,
-                title: 'Sangtittel',
+                title: 'Sang tittel',
                 artist: 'Artist',
                 location: [0],
                 releaseYear: 1996,
@@ -67,8 +67,19 @@ const model = {
             },
             {
                 id: 2,
-                title: 'Sangen',
-                artist: 'Artisten',
+                title: 'Album tittel',
+                artist: 'Artist',
+                location: [1],
+                releaseYear: 1991,
+                genre: [3],
+                notes: 'Notaten',
+                wishlist: false,
+                coverImg: null,
+            },
+            {
+                id: 3,
+                title: 'EP tittel',
+                artist: 'Artist',
                 location: [1],
                 releaseYear: 1991,
                 genre: [3],
