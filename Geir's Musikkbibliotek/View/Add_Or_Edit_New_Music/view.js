@@ -1,32 +1,51 @@
 function addDetailsPage() {
-	return buildMusicForm(false);
+    emptyList()
+    return buildMusicForm(false)
 }
+
 
 function editDetailsPage() {
-	return buildMusicForm(true);
+
+    return buildMusicForm(true);
 }
 
-function buildMusicForm(isEdit) {
-	const info = model.viewState.musicInfo;
 
-	const locationCheckboxes = model.data.location
-		.map(
-			(loc, i) => /*HTML*/ `
+function buildMusicForm(isEdit) {
+    const info = model.viewState.musicInfo;
+
+    const locationCheckboxes = model.data.location
+        .map(
+            (loc, i) => /*HTML*/ `
         <label class="checkbox-option">
-            <input type="checkbox"
+            <input type="radio"¨
+            name="location"
                    ${info.location.includes(i) ? "checked" : ""}
                    onchange="toggleLocationCheckbox(this, ${i})">
             ${loc}
         </label>
     `,
-		)
-		.join("");
+        )
+        .join("");
 
-	const coverHTML = info.coverImg
-		? `<img src="${info.coverImg}" alt="Cover" style="width:100%;height:100%;object-fit:cover;border-radius:8px">`
-		: `<span class="form-cover-icon">🎵</span><span>Endre cover</span>`;
+    const genreBoxes = model.data.genre
+        .map(
+            (loc, i) => /*HTML*/ `
+        <label class="checkbox-option">
+            <input type="checkbox"¨
+            name="genre"
+                   ${info.genre.includes(i) ? "checked" : ""}
+                   onchange="toggleGenreCheckbox(this, ${i})">
+            ${loc}
+        </label>
+    `,
+        )
+        .join("");
 
-	return /*HTML*/ `
+    const albumCover = info.coverImg
+        ? /*HTML*/ `<img src="${info.coverImg}" alt="Cover" style="width:100%;height:100%;object-fit:cover;border-radius:8px">`
+        : /*HTML*/ `<span class="form-cover-icon">🎵</span><span>Endre cover</span>`;
+
+    return /*HTML*/ `
     <div class="page-header">
         <span class="page-title">${isEdit ? "Rediger album" : "Legg til album"}</span>
     </div>
@@ -34,7 +53,7 @@ function buildMusicForm(isEdit) {
     <div class="form-card">
         <div class="form-top">
             <div class="form-cover-slot" title="Endre coverbilde">
-                ${coverHTML}
+                ${albumCover}
             </div>
 
             <div class="form-fields">
@@ -76,11 +95,9 @@ function buildMusicForm(isEdit) {
 
         <div class="form-row">
             <label class="form-label">Sjanger</label>
-            <input class="form-input"
-                   type="text"
-                   placeholder="f.eks. Rock, Jazz"
-                   value="${info.genre.map((i) => model.data.genre[i]).join(", ")}"
-                   oninput="model.viewState.musicInfo.genre = this.value">
+            <div class="checkbox-group">
+                ${genreBoxes}
+            </div>
         </div>
 
         <div class="form-row">
@@ -101,37 +118,13 @@ function buildMusicForm(isEdit) {
 
         <div class="form-actions">
             <div class="form-actions-left">
-                <button class="btn btn-accent" onclick="submitChanges()">Lagre</button>
+                <button class="btn btn-accent" onclick="submitChanges(${isEdit})">Lagre</button>
             </div>
             <div class="form-actions-right">
-                ${isEdit ? `<button class="btn btn-danger" onclick="deleteAlbum(model.viewState.musicInfo.id)">Slett</button>` : ""}
+                ${isEdit ? /*HTML*/ `<button class="btn btn-danger" onclick="deleteAlbum(model.viewState.musicInfo.id)">Slett</button>` : ""}
                 <button class="btn btn-ghost" onclick="changePage('homePage')">Avbryt</button>
             </div>
         </div>
     </div>
     `;
-}
-
-function toggleLocationCheckbox(checkbox, index) {
-	const locations = model.viewState.musicInfo.location;
-	if (checkbox.checked) {
-		if (!locations.includes(index)) locations.push(index);
-	} else {
-		const pos = locations.indexOf(index);
-		if (pos !== -1) locations.splice(pos, 1);
-	}
-}
-
-function rng() {
-	const number = Math.floor(Math.random() * 999999);
-	for (let i = 0; i < model.data.musicInfo.length; i++) {
-		if (model.data.musicInfo[i].id === number) return rng();
-	}
-	return number;
-}
-
-function submitChanges() {
-	model.viewState.musicInfo.id = rng();
-	model.data.musicInfo.push({ ...model.viewState.musicInfo });
-	changePage("homePage");
 }

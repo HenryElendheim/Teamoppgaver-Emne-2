@@ -3,12 +3,12 @@ function profilePage() {
 
 	const gridHTML = albums
 		.map((album) => {
-			const coverHTML = album.coverImg
+			const albumCover = album.coverImg
 				? `<img src="${album.coverImg}" alt="Cover">`
 				: "🎵";
 			return /*HTML*/ `
         <div class="profile-album-card" onclick="viewMusicDetails(${album.id})">
-            <div class="profile-album-img">${coverHTML}</div>
+            <div class="profile-album-img">${albumCover}</div>
             <div class="profile-album-info">
                 <div class="profile-album-title">${album.title}</div>
                 <div class="profile-album-artist">${album.artist}</div>

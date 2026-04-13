@@ -12,14 +12,14 @@ function viewDetailsPage() {
 	const genre = album.genre.map((i) => model.data.genre[i]).join(", ") || "—";
 	const location =
 		album.location.map((i) => model.data.location[i]).join(", ") || "—";
-	const coverHTML = album.coverImg
+	const albumCover = album.coverImg
 		? `<img src="${album.coverImg}" alt="Cover">`
 		: "🎵";
 
 	return /*HTML*/ `
     <div class="detail-card">
         <div class="detail-top">
-            <div class="detail-cover">${coverHTML}</div>
+            <div class="detail-cover">${albumCover}</div>
             <div class="detail-fields">
                 <div class="field-row">
                     <div class="field-label">Artist</div>
