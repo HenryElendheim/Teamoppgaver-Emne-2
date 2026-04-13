@@ -1,8 +1,31 @@
 function profilePage() {
+	const albums = model.data.musicInfo;
 
-    return /*HTML*/ `
-    <p>Geir Sollid</p>
-    <p>${model.data.musicInfo}</p>
-    
+	const gridHTML = albums
+		.map((album) => {
+			const coverHTML = album.coverImg
+				? `<img src="${album.coverImg}" alt="Cover">`
+				: "🎵";
+			return /*HTML*/ `
+        <div class="profile-album-card" onclick="viewMusicDetails(${album.id})">
+            <div class="profile-album-img">${coverHTML}</div>
+            <div class="profile-album-info">
+                <div class="profile-album-title">${album.title}</div>
+                <div class="profile-album-artist">${album.artist}</div>
+            </div>
+        </div>
+        `;
+		})
+		.join("");
+
+	return /*HTML*/ `
+    <div class="page-header">
+        <span class="page-title">Geir's Profil</span>
+    </div>
+    ${
+			albums.length
+				? `<div class="profile-grid">${gridHTML}</div>`
+				: `<div class="empty-state"><div class="empty-state-icon">🎵</div>Ingen album i biblioteket ennå.</div>`
+		}
     `;
 }

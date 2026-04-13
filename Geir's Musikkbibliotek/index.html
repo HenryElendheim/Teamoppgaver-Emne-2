@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="no">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Geir's</title>
+    <title>Geir's Musikkbibliotek</title>
     <link rel="stylesheet" href="CSS/style.css">
 </head>
 
@@ -15,11 +15,13 @@
         <button onclick="changePage('homePage')">Hjem</button>
         <button onclick="changePage('wishList')">Ønskeliste</button>
 
-        <input placeholder="Søkefelt">
+        <input id="navSearchInput" placeholder="Søkefelt" oninput="model.viewState.searchBar = this.value">
         <button onclick="changePage('searchPage')">Søk</button>
 
         <button onclick="changePage('login')">Logg inn</button>
         <button onclick="changePage('profile')">Profil</button>
+
+        <button class="btn-theme" onclick="toggleTheme()" id="themeBtn">🌙</button>
     </header>
 
     <div id="app"></div>
@@ -33,34 +35,38 @@
     <script src="View/Add_Or_Edit_New_Music/view.js"></script>
     <script src="View/Homepage/view.js"></script>
     <script src="View/Login/view.js"></script>
-
     <script src="View/Mobile/view.js"></script>
     <script src="View/Music_Details/view.js"></script>
     <script src="View/Profile/view.js"></script>
-
     <script src="View/Register/view.js"></script>
     <script src="View/Search/view.js"></script>
     <script src="View/Wishlist/view.js"></script>
 
     <script src="View/Universal/updateView.js"></script>
+    <script src="View/Universal/albumCard.js"></script>
 
     <script src="Controller/Edit_Music_Details/editMusic.js"></script>
     <script src="Controller/Login/login.js"></script>
     <script src="Controller/Music_Details/cancelBtn.js"></script>
     <script src="Controller/Music_Details/editBtn.js"></script>
-
     <script src="Controller/Register/register.js"></script>
-
     <script src="Controller/Search/filtration.js"></script>
     <script src="Controller/Search/listMusicInOrder.js"></script>
     <script src="Controller/Search/search.js"></script>
-
     <script src="Controller/Universal/delete.js"></script>
     <script src="Controller/Universal/navbar.js"></script>
     <script src="Controller/Universal/save.js"></script>
     <script src="Controller/Universal/viewMusicDetails.js"></script>
-
     <script src="Controller/Wishlist/wishlistProfileData.js"></script>
+
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const isLight = html.getAttribute('data-theme') === 'light';
+            html.setAttribute('data-theme', isLight ? 'dark' : 'light');
+            document.getElementById('themeBtn').textContent = isLight ? '🌙' : '☀️';
+        }
+    </script>
 </body>
 
 </html>
