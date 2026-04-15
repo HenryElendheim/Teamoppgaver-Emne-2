@@ -1,19 +1,6 @@
 function searchPage() {
 	const query = (model.viewState.searchBar || "").toLowerCase().trim();
-	const all = model.data.musicInfo;
-
-	const results = query
-		? all.filter(
-				(album) =>
-					album.title.toLowerCase().includes(query) ||
-					album.artist.toLowerCase().includes(query) ||
-					album.genre
-						.map((i) => model.data.genre[i])
-						.join(" ")
-						.toLowerCase()
-						.includes(query),
-			)
-		: all;
+	const results = getSearchResults();
 
 	const resultHTML = results.length
 		? results.map((album) => createAlbumCard(album)).join("")

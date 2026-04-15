@@ -761,50 +761,77 @@ footer {
 	border-radius: 3px;
 }
 
-
-
 /* ============================================================
-   Desktop View
+   Nav — default (mobile first)
    ============================================================ */
 
-@media (min-width: 1000px) {
+.nav-desktop {
+	display: none;
+}
+
+.nav-mobile {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	flex: 1;
+}
+
+.mobile-menu-show {
+	display: none;
+	flex-direction: column;
+	position: absolute;
+	top: 56px;
+	right: 0.75rem;
+	background: var(--nav-bg);
+	border: 1px solid var(--border);
+	border-radius: 8px;
+	padding: 0.4rem 0;
+	min-width: 160px;
+	box-shadow: 0 4px 16px var(--shadow);
+	z-index: 200;
+}
+
+.mobile-menu-show button {
+	width: 100%;
+	text-align: left;
+	padding: 0.5rem 1rem;
+	border-radius: 0;
+}
+
+.nav-mobile.open .mobile-menu-show {
+	display: flex;
+}
+
+.navBurger {
+	flex-shrink: 0;
+	font-size: 1.1rem;
+	padding: 0.3rem 0.6rem;
+}
+
+/* ============================================================
+   Desktop View  (≥ 768px)
+   ============================================================ */
+
+@media (min-width: 768px) {
 	.nav-desktop {
-		display: block;
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		flex: 1;
+	}
+
+	.nav-mobile {
+		display: none;
 	}
 }
 
-
-
 /* ============================================================
-   Mobile View
+   Mobile adjustments  (< 768px)
    ============================================================ */
 
-@media (max-width: 600px) {
-	.Navbar {
-		max-width: 600px;
-	}
-
+@media (max-width: 767px) {
 	.Navbar input {
 		max-width: 160px;
-	}
-
-	.nav-desktop {
-		display: none;
-	}
-
-	.navBurger {
-		display: block;
-		margin: auto;
-		background: none;
-		max-width: 160px;
-	}
-
-	.mobile-menu {
-		display: none;
-	}
-
-	.mobile-menu.open {
-		display: flex;
 	}
 
 	#app {

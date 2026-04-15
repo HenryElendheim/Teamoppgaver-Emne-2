@@ -1,51 +1,48 @@
 function addDetailsPage() {
-    emptyList()
-    return buildMusicForm(false)
+	emptyList();
+	return buildMusicForm(false);
 }
-
 
 function editDetailsPage() {
-
-    return buildMusicForm(true);
+	return buildMusicForm(true);
 }
 
-
 function buildMusicForm(isEdit) {
-    const info = model.viewState.musicInfo;
+	const info = model.viewState.musicInfo;
 
-    const locationCheckboxes = model.data.location
-        .map(
-            (loc, i) => /*HTML*/ `
+	const locationCheckboxes = model.data.location
+		.map(
+			(loc, i) => /*HTML*/ `
         <label class="checkbox-option">
-            <input type="radio"¨
+            <input type="radio"
             name="location"
                    ${info.location.includes(i) ? "checked" : ""}
                    onchange="toggleLocationCheckbox(this, ${i})">
             ${loc}
         </label>
     `,
-        )
-        .join("");
+		)
+		.join("");
 
-    const genreBoxes = model.data.genre
-        .map(
-            (loc, i) => /*HTML*/ `
+	const genreBoxes = model.data.genre
+		.map(
+			(loc, i) => /*HTML*/ `
         <label class="checkbox-option">
-            <input type="checkbox"¨
+            <input type="checkbox"
             name="genre"
                    ${info.genre.includes(i) ? "checked" : ""}
                    onchange="toggleGenreCheckbox(this, ${i})">
             ${loc}
         </label>
     `,
-        )
-        .join("");
+		)
+		.join("");
 
-    const albumCover = info.coverImg
-        ? /*HTML*/ `<img src="${info.coverImg}" alt="Cover" style="width:100%;height:100%;object-fit:cover;border-radius:8px">`
-        : /*HTML*/ `<span class="form-cover-icon">🎵</span><span>Endre cover</span>`;
+	const albumCover = info.coverImg
+		? /*HTML*/ `<img src="${info.coverImg}" alt="Cover" style="width:100%;height:100%;object-fit:cover;border-radius:8px">`
+		: /*HTML*/ `<span class="form-cover-icon">🎵</span><span>Endre cover</span>`;
 
-    return /*HTML*/ `
+	return /*HTML*/ `
     <div class="page-header">
         <span class="page-title">${isEdit ? "Rediger album" : "Legg til album"}</span>
     </div>
