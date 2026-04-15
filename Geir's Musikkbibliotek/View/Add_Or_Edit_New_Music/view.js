@@ -53,10 +53,11 @@ function buildMusicForm(isEdit) {
     <div class="form-card">
         <div class="form-top">
             <div class="form-cover-slot" title="Endre coverbilde">
-            <input type="img"
-                    onchange="model.viewState.musicInfo.coverImg = this.value">
+            <input type="file"
+                accept="image/*"
+                    onchange="saveImage(this)">
             ${albumCover}
-                
+
             </div>
 
             <div class="form-fields">

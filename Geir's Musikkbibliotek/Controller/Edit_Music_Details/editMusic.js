@@ -62,6 +62,8 @@ function emptyList() {
 }
 
 
-function hasChangeHappened() {
-
+function saveImage(image) {
+    const file = image.files[0]
+    if (!file) return;
+    model.viewState.musicInfo.coverImg = URL.createObjectURL(file);
 }
