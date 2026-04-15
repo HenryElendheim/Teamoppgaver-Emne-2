@@ -24,19 +24,23 @@
         </div>
 
         <div class="nav-mobile" id="mobile-menu">
-            <button onclick="changePage('homePage')">Hjem</button>
-            <button onclick="changePage('wishList')">Ønskeliste</button>
-
             <input id="navSearchInput" placeholder="Søkefelt" oninput="model.viewState.searchBar = this.value">
             <button onclick="changePage('searchPage')">Søk</button>
+            <button class="navBurger" onclick="toggleMobileMenu()" id="mobile-menu">☰</button>
 
-            <button onclick="changePage('login')">Logg inn</button>
-            <button onclick="changePage('profile')">Profil</button>
+            <div class="mobile-menu-show">
+                <button onclick="changePage('homePage')">Hjem</button>
+                <button onclick="changePage('wishList')">Ønskeliste</button>
+
+                <button onclick="changePage('login')">Logg inn</button>
+                <button onclick="changePage('profile')">Profil</button>
+            </div>
+
         </div>
 
 
         <button class="btn-theme" onclick="toggleTheme()" id="themeBtn">🌙</button>
-        <button class="navBurger" onclick="toggleMobileMenu()" id="mobile-menu">☰</button>
+
     </header>
 
     <div id="app"></div>

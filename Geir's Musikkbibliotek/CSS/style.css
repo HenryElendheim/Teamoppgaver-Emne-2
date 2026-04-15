@@ -761,8 +761,22 @@ footer {
 	border-radius: 3px;
 }
 
+
+
 /* ============================================================
-   RESPONSIVE
+   Desktop View
+   ============================================================ */
+
+@media (min-width: 1000px) {
+	.nav-desktop {
+		display: block;
+	}
+}
+
+
+
+/* ============================================================
+   Mobile View
    ============================================================ */
 
 @media (max-width: 600px) {
@@ -774,8 +788,23 @@ footer {
 		max-width: 160px;
 	}
 
+	.nav-desktop {
+		display: none;
+	}
+
 	.navBurger {
+		display: block;
+		margin: auto;
+		background: none;
 		max-width: 160px;
+	}
+
+	.mobile-menu {
+		display: none;
+	}
+
+	.mobile-menu.open {
+		display: flex;
 	}
 
 	#app {

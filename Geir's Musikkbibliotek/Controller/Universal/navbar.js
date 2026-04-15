@@ -7,14 +7,15 @@ function toggleMobileMenu() {
     //forkortelse
     const mobileMenu = model.app.mobileMenuToggle;
 
-    if (mobileMenu == !mobileMenu) {
+    if (mobileMenu == true) {
         menu.classList.toggle('open');
         console.log(mobileMenu)
+        console.log("On")
     } else {
         menu.classList.remove('open');
         console.log(mobileMenu)
+        console.log("Off")
     }
-
 }
 
 // function navbar() {
