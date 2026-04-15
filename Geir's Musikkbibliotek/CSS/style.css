@@ -766,7 +766,15 @@ footer {
    ============================================================ */
 
 @media (max-width: 600px) {
+	.Navbar {
+		max-width: 600px;
+	}
+
 	.Navbar input {
+		max-width: 160px;
+	}
+
+	.navBurger {
 		max-width: 160px;
 	}
 
