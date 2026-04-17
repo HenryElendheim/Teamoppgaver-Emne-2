@@ -15,3 +15,11 @@ function getSearchResults() {
 				.includes(query),
 	);
 }
+
+
+// document.addEventListener('keydown', (event) => {
+// 	if (event.key === 'Enter') {
+// 		getSearchResults()
+// 		changePage('searchPage')
+// 	}
+// });

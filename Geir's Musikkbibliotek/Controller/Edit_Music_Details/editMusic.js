@@ -41,8 +41,72 @@ function submitChanges(isEdit) {
 			model.data.musicInfo[index] = model.viewState.musicInfo;
 		}
 	}
+
 	changePage("homePage");
 }
+
+
+function newLocation(event) {
+	event.preventDefault();
+	const location = model.viewState.editMusicInfo.location
+
+	if (location !== "") {
+		model.data.location.push(location)
+	};
+
+	model.app.showLocationInput = !model.app.showLocationInput;
+
+	emptyGenreLocationList();
+	updateView();
+}
+
+
+function newGenre(event) {
+	event.preventDefault();
+	const genre = model.viewState.editMusicInfo.genre
+
+	if (genre !== "") {
+		model.data.genre.push(genre)
+	};
+
+	model.app.showGenreInput = !model.app.showGenreInput;
+
+	emptyGenreLocationList();
+	updateView();
+}
+
+
+function removeLocation(event) {
+	event.preventDefault();
+	const location = model.viewState.editMusicInfo.location
+
+	if (location !== "") {
+		model.data.location.splice(location, 1)
+		console.log(location)
+	};
+
+	model.app.showDeleteLocationInput = !model.app.showDeleteLocationInput;
+
+	emptyGenreLocationList();
+	updateView();
+}
+
+
+function removeGenre(event) {
+	event.preventDefault();
+	const genre = model.viewState.editMusicInfo.genre
+
+	if (genre !== "") {
+		model.data.genre.splice(genre, 1)
+		console.log(genre)
+	};
+
+	model.app.showDeleteGenreInput = !model.app.showDeleteGenreInput;
+
+	emptyGenreLocationList();
+	updateView();
+}
+
 
 function emptyList() {
 	model.viewState.musicInfo = {
@@ -58,8 +122,19 @@ function emptyList() {
 	};
 }
 
+
+function emptyGenreLocationList() {
+	model.viewState.editMusicInfo = {
+		genre: "",
+		location: "",
+	};
+}
+
+
 function saveImage(image) {
 	const file = image.files[0];
 	if (!file) return;
 	model.viewState.musicInfo.coverImg = URL.createObjectURL(file);
 }
+
+

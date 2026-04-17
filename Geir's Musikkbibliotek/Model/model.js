@@ -15,12 +15,18 @@ const model = {
 		currentPage: "homePage",
 		mobileMenuToggle: false,
 		loggedInID: null,
+
+		showGenreInput: true,
+		showLocationInput: true,
+		
+		showDeleteGenreInput: true,
+		showDeleteLocationInput: true,
 	},
 
 	viewState: {
 		editMusicInfo: {
-			genre: null,
-			location: null,
+			genre: "",
+			location: "",
 		},
 
 		musicInfo: {

@@ -501,7 +501,12 @@ footer {
 }
 
 .form-cover-icon {
-	font-size: 2rem;
+	font-size: 1.5rem;
+}
+
+.form-cover-set-image {
+	font-size: 14px;
+	margin-left: 210px;
 }
 
 .form-fields {
@@ -830,8 +835,12 @@ footer {
    ============================================================ */
 
 @media (max-width: 767px) {
+	.Navbar {
+		max-width: auto;
+	}
+
 	.Navbar input {
-		max-width: 160px;
+		max-width: 100px;
 	}
 
 	#app {
