@@ -16,7 +16,7 @@
             <button onclick="changePage('homePage')">Hjem</button>
             <button onclick="changePage('wishList')">Ønskeliste</button>
 
-            <input id="navSearchInput" placeholder="Søkefelt" oninput="model.viewState.searchBar = this.value">
+            <input placeholder="Søkefelt" oninput="model.viewState.searchBar = this.value">
             <button onclick="changePage('searchPage')">Søk</button>
 
             <button onclick="changePage('login')">Logg inn</button>
@@ -24,7 +24,7 @@
         </div>
 
         <div class="nav-mobile" id="mobile-menu">
-            <input id="navSearchInput" placeholder="Søkefelt" oninput="model.viewState.searchBar = this.value">
+            <input placeholder="Søkefelt" oninput="model.viewState.searchBar = this.value">
             <button onclick="changePage('searchPage')">Søk</button>
             <button class="navBurger" onclick="toggleMobileMenu()">☰</button>
 
@@ -54,7 +54,6 @@
     <script src="View/Add_Or_Edit_New_Music/view.js"></script>
     <script src="View/Homepage/view.js"></script>
     <script src="View/Login/view.js"></script>
-    <script src="View/Mobile/view.js"></script>
     <script src="View/Music_Details/view.js"></script>
     <script src="View/Profile/view.js"></script>
     <script src="View/Register/view.js"></script>

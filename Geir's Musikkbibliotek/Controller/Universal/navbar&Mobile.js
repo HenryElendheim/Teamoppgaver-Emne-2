@@ -17,16 +17,3 @@ function toggleMobileMenu() {
 		console.log("Off");
 	}
 }
-
-// function navbar() {
-//     return /*HTML*/ `
-//         <button onclick="changePage('homePage')">Hjem</button>
-//         <button onclick="changePage('wishList')">Ønskeliste</button>
-
-//         <input id="navSearchInput" placeholder="Søkefelt" oninput="model.viewState.searchBar = this.value">
-//         <button onclick="changePage('searchPage')">Søk</button>
-
-//         <button onclick="changePage('login')">Logg inn</button>
-//         <button onclick="changePage('profile')">Profil</button>
-//         `;
-// }

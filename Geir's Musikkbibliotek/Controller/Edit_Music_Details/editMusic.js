@@ -38,21 +38,19 @@ function submitChanges(isEdit) {
 			(item) => item.id == model.viewState.musicInfo.id,
 		);
 		if (index !== -1) {
-			model.data.musicInfo[index] = model.viewState.musicInfo;
+			model.data.musicInfo[index] = { ...model.viewState.musicInfo };
 		}
 	}
 
 	changePage("homePage");
 }
 
-
 function newLocation(event) {
 	event.preventDefault();
-	const location = model.viewState.editMusicInfo.location
-
+	const location = model.viewState.editMusicInfo.location;
 	if (location !== "") {
-		model.data.location.push(location)
-	};
+		model.data.location.push(location);
+	}
 
 	model.app.showLocationInput = !model.app.showLocationInput;
 
@@ -60,53 +58,56 @@ function newLocation(event) {
 	updateView();
 }
 
-
 function newGenre(event) {
 	event.preventDefault();
-	const genre = model.viewState.editMusicInfo.genre
+	const genre = model.viewState.editMusicInfo.genre;
 
 	if (genre !== "") {
-		model.data.genre.push(genre)
-	};
-
+		model.data.genre.push(genre);
+	} else {
+		alert("Skrivefeil");
+	}
 	model.app.showGenreInput = !model.app.showGenreInput;
 
 	emptyGenreLocationList();
 	updateView();
 }
 
-
 function removeLocation(event) {
 	event.preventDefault();
-	const location = model.viewState.editMusicInfo.location
+	const location = model.viewState.editMusicInfo.location;
 
-	if (location !== "") {
-		model.data.location.splice(location, 1)
-		console.log(location)
-	};
+	const locationIdx = model.data.location.indexOf(location);
+	if (locationIdx !== -1) {
+		deleteConfirmation();
+		if (model.app.deleteConfirmation === false) {
+			model.data.location.splice(locationIdx, 1);
+		} else {
+			model.app.deleteConfirmation = false;
+		}
+	}
 
 	model.app.showDeleteLocationInput = !model.app.showDeleteLocationInput;
-
-	emptyGenreLocationList();
 	updateView();
 }
-
 
 function removeGenre(event) {
 	event.preventDefault();
-	const genre = model.viewState.editMusicInfo.genre
+	const genre = model.viewState.editMusicInfo.genre;
 
-	if (genre !== "") {
-		model.data.genre.splice(genre, 1)
-		console.log(genre)
-	};
+	const genreIdx = model.data.genre.indexOf(genre);
+	if (genreIdx !== -1) {
+		deleteConfirmation();
+		if (model.app.deleteConfirmation === false) {
+			model.data.genre.splice(genreIdx, 1);
+		} else {
+			model.app.deleteConfirmation = false;
+		}
+	}
 
 	model.app.showDeleteGenreInput = !model.app.showDeleteGenreInput;
-
-	emptyGenreLocationList();
 	updateView();
 }
-
 
 function emptyList() {
 	model.viewState.musicInfo = {
@@ -122,7 +123,6 @@ function emptyList() {
 	};
 }
 
-
 function emptyGenreLocationList() {
 	model.viewState.editMusicInfo = {
 		genre: "",
@@ -130,11 +130,15 @@ function emptyGenreLocationList() {
 	};
 }
 
-
 function saveImage(image) {
 	const file = image.files[0];
 	if (!file) return;
 	model.viewState.musicInfo.coverImg = URL.createObjectURL(file);
 }
 
-
+function deleteConfirmation() {
+	if (confirm("Er du sikker på at du vil slette denne?")) {
+		emptyGenreLocationList();
+		updateView();
+	} else model.app.deleteConfirmation = true;
+}
