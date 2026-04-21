@@ -137,7 +137,7 @@ function buildMusicForm(isEdit) {
                 <form onsubmit="removeGenre(event)" style="visibility: ${model.app.showDeleteGenreInput ? "hidden" : "visible"};">
                     <input class="form-input"
                         type="text"
-                        placeholder="Fjern lokasjon?"
+                        placeholder="Fjern sjanger?"
                         value="${model.viewState.editMusicInfo.genre}"
                         oninput="model.viewState.editMusicInfo.genre = this.value">
                         <button>✔️</button>
