@@ -1,4 +1,17 @@
 function toggleWishlist(id, checked) {
-	const album = model.data.musicInfo.find((a) => a.id === id);
-	if (album) album.wishlist = checked;
+	if (!isAuthenticated()) {
+		requireLoginOrGuest("Logg inn eller velg gjest for å bruke ønskelisten.");
+		return;
+	}
+
+	const success = setWishlistState(id, checked);
+	if (!success) return;
+
+	if (
+		model.app.currentPage === "wishList" ||
+		model.app.currentPage === "viewDetails" ||
+		model.app.currentPage === "profile"
+	) {
+		updateView();
+	}
 }
