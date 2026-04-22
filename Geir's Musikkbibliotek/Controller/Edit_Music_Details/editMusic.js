@@ -49,6 +49,11 @@ function newLocation(event) {
 	event.preventDefault();
 	const location = model.viewState.editMusicInfo.location;
 	if (location !== "") {
+		for (let i = 0; i < model.data.location.length; i++) {
+			if (model.data.location[i] == location) {
+				return;
+			}
+		}
 		model.data.location.push(location);
 	}
 
@@ -63,9 +68,12 @@ function newGenre(event) {
 	const genre = model.viewState.editMusicInfo.genre;
 
 	if (genre !== "") {
+		for (let i = 0; i < model.data.genre.length; i++) {
+			if (model.data.genre[i] == genre) {
+				return;
+			}
+		}
 		model.data.genre.push(genre);
-	} else {
-		alert("Skrivefeil");
 	}
 	model.app.showGenreInput = !model.app.showGenreInput;
 
