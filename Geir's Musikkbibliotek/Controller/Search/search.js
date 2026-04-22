@@ -1,22 +1,17 @@
 function getSearchResults() {
 	const query = (model.viewState.searchBar || "").toLowerCase().trim();
-	const allAlbums = model.data.musicInfo;
+	const all = model.data.musicInfo;
 
-	if (!query) return allAlbums;
+	if (!query) return all;
 
-	return allAlbums.filter((album) => {
-		const title = album.title.toLowerCase();
-		const artist = album.artist.toLowerCase();
-		const notes = (album.notes || "").toLowerCase();
-		const genres = getGenreNames(album.genre).toLowerCase();
-		const locations = getLocationNames(album.location).toLowerCase();
-
-		return (
-			title.includes(query) ||
-			artist.includes(query) ||
-			notes.includes(query) ||
-			genres.includes(query) ||
-			locations.includes(query)
-		);
-	});
+	return all.filter(
+		(album) =>
+			album.title.toLowerCase().includes(query) ||
+			album.artist.toLowerCase().includes(query) ||
+			album.genre
+				.map((i) => model.data.genre[i])
+				.join(" ")
+				.toLowerCase()
+				.includes(query),
+	);
 }

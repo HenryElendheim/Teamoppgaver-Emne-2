@@ -1,14 +1,6 @@
 function viewMusicDetails(id) {
-	const album = model.data.musicInfo.find((item) => item.id === id);
+	const album = model.data.musicInfo.find((a) => a.id === id);
 	if (!album) return;
-
-	model.viewState.musicInfo = {
-		...createEmptyMusicInfo(),
-		...album,
-		location: [...album.location],
-		genre: [...album.genre],
-		wishlist: isInWishlist(album.id),
-	};
-
+	model.viewState.musicInfo = { ...album };
 	changePage("viewDetails");
 }

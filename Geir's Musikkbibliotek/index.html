@@ -12,10 +12,35 @@
     <header class="Navbar">
         <h1 onclick="changePage('homePage')">Geir's Musikk</h1>
 
-        <div class="nav-desktop" id="nav-desktop"></div>
-        <div class="nav-mobile" id="nav-mobile"></div>
+        <div class="nav-desktop">
+            <button onclick="changePage('homePage')">Hjem</button>
+            <button onclick="changePage('wishList')">Ønskeliste</button>
+
+            <input placeholder="Søkefelt" oninput="model.viewState.searchBar = this.value">
+            <button onclick="changePage('searchPage')">Søk</button>
+
+            <button onclick="changePage('login')">Logg inn</button>
+            <button onclick="changePage('profile')">Profil</button>
+        </div>
+
+        <div class="nav-mobile" id="mobile-menu">
+            <input placeholder="Søkefelt" oninput="model.viewState.searchBar = this.value">
+            <button onclick="changePage('searchPage')">Søk</button>
+            <button class="navBurger" onclick="toggleMobileMenu()">☰</button>
+
+            <div class="mobile-menu-show">
+                <button onclick="changePage('homePage')">Hjem</button>
+                <button onclick="changePage('wishList')">Ønskeliste</button>
+
+                <button onclick="changePage('login')">Logg inn</button>
+                <button onclick="changePage('profile')">Profil</button>
+            </div>
+
+        </div>
+
 
         <button class="btn-theme" onclick="toggleTheme()" id="themeBtn">🌙</button>
+
     </header>
 
     <div id="app"></div>
@@ -34,7 +59,9 @@
     <script src="View/Register/view.js"></script>
     <script src="View/Search/view.js"></script>
     <script src="View/Wishlist/view.js"></script>
+
     <script src="View/Universal/albumCard.js"></script>
+    <script src="View/Universal/updateView.js"></script>
 
     <script src="Controller/Edit_Music_Details/editMusic.js"></script>
     <script src="Controller/Login/login.js"></script>
@@ -46,33 +73,13 @@
     <script src="Controller/Universal/save.js"></script>
     <script src="Controller/Universal/viewMusicDetails.js"></script>
 
-    <script src="View/Universal/updateView.js"></script>
-
     <script>
-        function applyTheme(theme) {
-            const html = document.documentElement;
-            const normalizedTheme = theme === 'light' ? 'light' : 'dark';
-            html.setAttribute('data-theme', normalizedTheme);
-            const themeBtn = document.getElementById('themeBtn');
-            if (themeBtn) {
-                themeBtn.textContent = normalizedTheme === 'light' ? '☀️' : '🌙';
-            }
-        }
-
-        function loadTheme() {
-            const savedTheme = localStorage.getItem(APP_THEME_KEY) || 'dark';
-            applyTheme(savedTheme);
-        }
-
         function toggleTheme() {
-            const currentTheme = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
-            const nextTheme = currentTheme === 'light' ? 'dark' : 'light';
-            localStorage.setItem(APP_THEME_KEY, nextTheme);
-            applyTheme(nextTheme);
+            const html = document.documentElement;
+            const isLight = html.getAttribute('data-theme') === 'light';
+            html.setAttribute('data-theme', isLight ? 'dark' : 'light');
+            document.getElementById('themeBtn').textContent = isLight ? '🌙' : '☀️';
         }
-
-        loadTheme();
-        initializeApp();
     </script>
 </body>
 
