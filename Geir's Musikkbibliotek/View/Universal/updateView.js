@@ -1,4 +1,5 @@
 updateView();
+
 function updateView() {
 	let html = "";
 
@@ -13,9 +14,23 @@ function updateView() {
 	else if (model.app.currentPage == "register") html = registerPage();
 
 	model.app.app.innerHTML = html;
+	syncNavbar();
 }
 
 function changePage(element) {
+	const publicPages = ["login", "register"];
+
+	if (!isLoggedIn() && !publicPages.includes(element)) {
+		model.app.currentPage = "login";
+		updateView();
+		return;
+	}
+
+	if (element === "addDetails") {
+		initNewAlbum();
+	}
+
 	model.app.currentPage = element;
+	clearAuthMessage();
 	updateView();
 }

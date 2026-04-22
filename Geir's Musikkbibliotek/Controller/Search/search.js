@@ -1,6 +1,6 @@
 function getSearchResults() {
 	const query = (model.viewState.searchBar || "").toLowerCase().trim();
-	const all = model.data.musicInfo;
+	const all = getAccessibleAlbums();
 
 	if (!query) return all;
 

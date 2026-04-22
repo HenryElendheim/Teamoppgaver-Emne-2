@@ -19,8 +19,8 @@
             <input placeholder="Søkefelt" oninput="model.viewState.searchBar = this.value">
             <button onclick="changePage('searchPage')">Søk</button>
 
-            <button onclick="changePage('login')">Logg inn</button>
-            <button onclick="changePage('profile')">Profil</button>
+            <button id="nav-login-desktop" onclick="handleLoginNavClick()">Logg inn</button>
+            <button id="nav-profile-desktop" style="display: none;" onclick="handleProfileNavClick()">Profil</button>
         </div>
 
         <div class="nav-mobile" id="mobile-menu">
@@ -32,8 +32,8 @@
                 <button onclick="changePage('homePage')">Hjem</button>
                 <button onclick="changePage('wishList')">Ønskeliste</button>
 
-                <button onclick="changePage('login')">Logg inn</button>
-                <button onclick="changePage('profile')">Profil</button>
+                <button id="nav-login-mobile" onclick="handleLoginNavClick()">Logg inn</button>
+                <button id="nav-profile-mobile" style="display: none;" onclick="handleProfileNavClick()">Profil</button>
             </div>
 
         </div>
