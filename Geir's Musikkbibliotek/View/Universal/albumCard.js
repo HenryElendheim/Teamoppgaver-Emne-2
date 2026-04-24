@@ -1,4 +1,5 @@
 function createAlbumCard(album) {
+    const childControls = isChild();
 	const genre = album.genre.map((i) => model.data.genre[i]).join(", ") || "—";
 	const location =
 		album.location.map((i) => model.data.location[i]).join(", ") || "—";
@@ -23,7 +24,9 @@ function createAlbumCard(album) {
 
         <div class="album-actions">
             <button class="btn btn-ghost" onclick="event.stopPropagation(); viewMusicDetails(${album.id})">Se</button>
-            <button class="btn btn-danger" onclick="event.stopPropagation(); deleteAlbum(${album.id})">Slett</button>
+            ${childControls
+                ? "" : /*HTML*/ `<button class="btn btn-danger" onclick="event.stopPropagation(); deleteAlbum(${album.id})">Slett</button>`
+            }
         </div>
     </div>
     `;

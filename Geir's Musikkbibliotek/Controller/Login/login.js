@@ -120,13 +120,15 @@ function syncNavbar() {
 	const profileDesktop = document.getElementById("nav-profile-desktop");
 	const profileMobile = document.getElementById("nav-profile-mobile");
 
-	if (loginDesktop) loginDesktop.textContent = user ? "Logg ut" : "Logg inn";
-	if (loginMobile) loginMobile.textContent = user ? "Logg ut" : "Logg inn";
 
-	if (profileDesktop) {
-		profileDesktop.style.display = user ? "inline-flex" : "none";
-	}
-	if (profileMobile) {
-		profileMobile.style.display = user ? "inline-flex" : "none";
-	}
+		if (loginDesktop) loginDesktop.textContent = user ? "Logg ut" : "Logg inn";
+		if (loginMobile) loginMobile.textContent = user ? "Logg ut" : "Logg inn";
+
+		if (profileDesktop) {
+			profileDesktop.style.display = user ? "inline-flex" : "none";
+		}
+		if (profileMobile) {
+			profileMobile.style.display = user ? "inline-flex" : "none";
+		}
+
 }

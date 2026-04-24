@@ -39,9 +39,9 @@ function registerPage() {
 
             <div class="form-row">
                 <label class="form-label">Er du over 18 år?</label>
-                <input type="checkbox"
+                <input id="ageCheckbox" type="checkbox"
                        value="${model.viewState.createProfile.isUnderAge}"
-                       oninput="model.viewState.createProfile.isUnderAge = this.value">
+                       onchange="model.viewState.createProfile.isUnderAge = this.checked">
             </div>
 
             <button class="btn btn-accent btn-full" onclick="register()">Registrer</button>

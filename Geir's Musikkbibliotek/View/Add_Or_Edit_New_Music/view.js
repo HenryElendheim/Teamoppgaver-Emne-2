@@ -9,6 +9,7 @@ function editDetailsPage() {
 function buildMusicForm(isEdit) {
     const info = model.viewState.musicInfo;
     const adminControls = isAdmin();
+    const childControls = isChild();
 
     const locationCheckboxes = model.data.location
         .map(
@@ -198,15 +199,15 @@ function buildMusicForm(isEdit) {
             <div class="form-actions-left">
                 <button class="btn btn-accent" onclick="submitChanges(${isEdit})">Lagre</button>
             </div>
-
+            
             <div class="form-actions-right">
-                ${isEdit
-            ? /*HTML*/ `<button class="btn btn-danger" onclick="deleteAlbum(model.viewState.musicInfo.id)">Slett</button>`
-            : ""
-        }
+                ${isEdit && !childControls
+                    ? /*HTML*/ `<button class="btn btn-danger" onclick="deleteAlbum(model.viewState.musicInfo.id)">Slett</button>`
+                    : ""
+                }
                 <button class="btn btn-ghost" onclick="changePage('homePage')">Avbryt</button>
             </div>
-        </div>
-    </div>
-    `;
+        </div >
+    </div >
+        `;
 }

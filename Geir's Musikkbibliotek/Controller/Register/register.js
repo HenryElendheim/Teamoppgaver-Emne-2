@@ -52,7 +52,11 @@ function rngUserId() {
 
 
 function isUnderAge() {
-    console.log(model.viewState.isUnderAge)
+    if (ageCheckbox.checked == false) {
+        return "child"
+    } else {
+        return "user"
+    }
 }
 
 

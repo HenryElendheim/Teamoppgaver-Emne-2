@@ -62,7 +62,7 @@ const model = {
 	},
 
 	data: {
-		genre: ["Rock", "Jazz", "Country", "Pop"],
+		genre: ["Rock", "Jazz", "Country", "Pop", "EDM", "Diverse Sjangere"],
 		location: ["Stue", "Loft", "Boden"],
 
 		musicInfo: [
@@ -96,7 +96,7 @@ const model = {
 			},
 			{
 				id: 3,
-				ownerId: 3,
+				ownerId: 2,
 				title: "Abbey Road",
 				artist: "The Beatles",
 				location: [1],
@@ -108,25 +108,39 @@ const model = {
 				coverImg:
 					"https://imusic.b-cdn.net/images/item/original/439/0602508007439.jpg?the-beatles-2019-abbey-road-50th-anniversary-cd&class=original&v=1565271105",
 			},
+			{
+				id: 4,
+				ownerId: 3,
+				title: "Hits For Kids 8",
+				artist: "Flere Artister",
+				location: [1],
+				releaseYear: 2002,
+				genre: [0,4,5],
+				notes:
+					"Beste hits for kids (nostalgi går crazy)",
+				wishlist: false,
+				coverImg:
+					"https://media.discordapp.net/attachments/1483106447586885848/1497162937096343692/Hits_For_Kids_8.png?ex=69ec8524&is=69eb33a4&hm=9f039035720caa6066f2c51fe65e832e2e14a739d7872bfd4e8b551394bd9804&=&format=webp&quality=lossless&width=540&height=540",
+			},
 		],
 
 		users: [
 			{
 				id: 1,
 				username: "admin",
-				password: "admin",
+				password: "123",
 				role: "admin",
 			},
 			{
 				id: 2,
 				username: "Geir",
-				password: "geir",
+				password: "123",
 				role: "user",
 			},
 			{
 				id: 3,
-				username: "GeirAndre",
-				password: "geir2",
+				username: "Barn",
+				password: "123",
 				role: "child",
 			},
 		],
