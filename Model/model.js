@@ -120,7 +120,7 @@ const model = {
 					"Beste hits for kids (nostalgi går crazy)",
 				wishlist: false,
 				coverImg:
-					"https://media.discordapp.net/attachments/1483106447586885848/1497162937096343692/Hits_For_Kids_8.png?ex=69ec8524&is=69eb33a4&hm=9f039035720caa6066f2c51fe65e832e2e14a739d7872bfd4e8b551394bd9804&=&format=webp&quality=lossless&width=540&height=540",
+					"https://images-ext-1.discordapp.net/external/G630ABOXWIjcKeFu97sRI3bx7TRKodoGiK2jBcV-3oc/https/i.discogs.com/_S_IEN6ER9Pv9eMseYkjQVQTrbzL13DYKiIJvuUbpIY/rs%3Afit/g%3Asm/q%3A90/h%3A600/w%3A600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTU1MDY1/NzEtMTM5NTE0NzM2/MS02MzYxLmpwZWc.jpeg?format=webp&width=540&height=540",
 			},
 		],
 
