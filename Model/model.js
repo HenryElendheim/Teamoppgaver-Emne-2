@@ -63,7 +63,7 @@ const model = {
 
 	data: {
 		genre: ["Rock", "Jazz", "Country", "Pop", "EDM", "Diverse Sjangere"],
-		location: ["Stue", "Loft", "Boden"],
+		location: ["Stue", "Loft", "Boden", "Butikk"],
 
 		musicInfo: [
 			{
